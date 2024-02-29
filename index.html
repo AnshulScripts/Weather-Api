@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="&nbsp&nbsp enter your city" class="inp" spellcheck="false">
+            <button class="icon"><i class="bi bi-search icon"></i></button>
+            <br><br><br>
+            <img src="./images-removebg-preview.png" alt="">
+            <br>
+            <h2 class="temprature">22°c</h2>
+            <h4 id="cityname">germany </h4>
+            <br><br>
+            <img src="./asd.png" class="wind" alt="">
+        
+            <img class="humidity" src="./download-removebg-preview (1).png" alt="">
+            
+        </div>
+        <h6 class="wind-speed">15km/h <br> wind speed </h6>
+        
+        <h5 class="humidity-speed">50% <br> humidity</h5>
+    </div>
+</body>
+<script>
+    // let btn = document.querySelector('.icon')
+    // let inp = document.querySelector('.inp')
+    // let temp  = document.querySelector('.temprature')
+    // let wind =  document.querySelector('.wind-speed')
+    // let humidity =  document.querySelector('.humidity-speed')
+    // let city = document.getElementById("cityname")
+    
+    // btn.addEventListener('click', function(){
+    //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inp.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
+    //     .then(Response => Response.json())
+    //         .then(data => {
+    //             city.innerHTML = data.name;
+    //             displayData(data);
+    //         })
+    //         .catch(err => alert('ye mulk nhi he'))
+    // });
+
+    // const displayData = (weather) => {
+    //     temp.innerHTML = `${weather.main.temp}°C`;
+    //     wind.innerHTML = `${weather.wind.speed} km/h <br> wind speed`;
+    //     humidity.innerHTML = `${weather.main.humidity}% <br> humidity`;
+    // }
+    let btn = document.querySelector('.icon')
+     let inp = document.querySelector('.inp')
+     let temp  = document.querySelector('.temprature')
+     let wind =  document.querySelector('.wind-speed')
+     let humidity =  document.querySelector('.humidity-speed')
+     let city = document.getElementById("cityname")
+
+btn.addEventListener('click', function(){
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inp.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
+.then(Response => Response.json)
+.then( data =>{
+city.innerHTML = data.name;
+displayData(data);
+});
+
+const displayData = (weather) => {
+    temp.innerHTML = `${weather.main.temp}`
+}
+
+
+
+})
+
+</script>
+</html>
