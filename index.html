@@ -31,50 +31,29 @@
     </div>
 </body>
 <script>
-    // let btn = document.querySelector('.icon')
-    // let inp = document.querySelector('.inp')
-    // let temp  = document.querySelector('.temprature')
-    // let wind =  document.querySelector('.wind-speed')
-    // let humidity =  document.querySelector('.humidity-speed')
-    // let city = document.getElementById("cityname")
-    
-    // btn.addEventListener('click', function(){
-    //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inp.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
-    //     .then(Response => Response.json())
-    //         .then(data => {
-    //             city.innerHTML = data.name;
-    //             displayData(data);
-    //         })
-    //         .catch(err => alert('ye mulk nhi he'))
-    // });
-
-    // const displayData = (weather) => {
-    //     temp.innerHTML = `${weather.main.temp}°C`;
-    //     wind.innerHTML = `${weather.wind.speed} km/h <br> wind speed`;
-    //     humidity.innerHTML = `${weather.main.humidity}% <br> humidity`;
-    // }
     let btn = document.querySelector('.icon')
-     let inp = document.querySelector('.inp')
-     let temp  = document.querySelector('.temprature')
-     let wind =  document.querySelector('.wind-speed')
-     let humidity =  document.querySelector('.humidity-speed')
-     let city = document.getElementById("cityname")
+    let inp = document.querySelector('.inp')
+    let temp  = document.querySelector('.temprature')
+    let wind =  document.querySelector('.wind-speed')
+    let humidity =  document.querySelector('.humidity-speed')
+    let city = document.getElementById("cityname")
+    
+    btn.addEventListener('click', function(){
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inp.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
+        .then(Response => Response.json())
+            .then(data => {
+                city.innerHTML = data.name;
+                displayData(data);
+            })
+            .catch(err => alert('ye mulk nhi he'))
+    });
 
-btn.addEventListener('click', function(){
-fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inp.value}&units=metric&appid=108dd9a67c96f23039937fe6f3c91963`)
-.then(Response => Response.json)
-.then( data =>{
-city.innerHTML = data.name;
-displayData(data);
-});
-
-const displayData = (weather) => {
-    temp.innerHTML = `${weather.main.temp}`
-}
-
-
-
-})
+    const displayData = (weather) => {
+        temp.innerHTML = `${weather.main.temp}°C`;
+        wind.innerHTML = `${weather.wind.speed} km/h <br> wind speed`;
+        humidity.innerHTML = `${weather.main.humidity}% <br> humidity`;
+    }
+    
 
 </script>
 </html>
